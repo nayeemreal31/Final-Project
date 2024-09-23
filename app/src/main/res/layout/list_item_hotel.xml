@@ -1,0 +1,61 @@
+<!-- list_item_product.xml -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/image_view_product"
+        android:layout_width="200dp"
+        android:layout_height="260dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/upload_icon" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_view_hotel_name"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_view_room_types"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/text_view_person"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_view_price"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_view_location"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:textSize="14sp" />
+
+
+</LinearLayout>

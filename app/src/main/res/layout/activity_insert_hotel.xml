@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".InsertHotelActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/insert_hotell"
+        android:gravity="center"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:padding="16dp"/>
+
+    <EditText
+        android:id="@+id/et_insert_hotel_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hotel_name"
+        android:inputType="text"
+        android:textSize="32sp"
+        android:padding="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@android:drawable/editbox_background"/>
+
+    <EditText
+        android:id="@+id/et_insert_room_types"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/room_types"
+        android:inputType="text"
+        android:textSize="32sp"
+        android:padding="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@android:drawable/editbox_background"/>
+
+    <EditText
+        android:id="@+id/et_insert_person"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/person"
+        android:inputType="text"
+        android:textSize="32sp"
+        android:padding="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@android:drawable/editbox_background"/>
+
+    <EditText
+        android:id="@+id/et_insert_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/price"
+        android:inputType="numberDecimal"
+        android:textSize="32sp"
+        android:padding="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@android:drawable/editbox_background"/>
+
+
+
+    <ImageView
+        android:id="@+id/iv_selected_image"
+        android:layout_width="match_parent"
+        android:layout_height="167dp"
+        android:layout_marginBottom="16dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/upload_icon" />
+
+    <Button
+        android:id="@+id/btn_select_image"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:text="@string/select_image"
+        android:layout_marginBottom="16dp"/>
+
+
+    <Button
+        android:id="@+id/btn_insert_hotel"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="@string/insert_hotel"
+        android:layout_marginTop="14dp"/>
+
+
+</LinearLayout>

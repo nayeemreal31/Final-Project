@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Header TextView -->
+    <TextView
+        android:id="@+id/text_view_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/to_update_search_a_hotel_by_name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Product ID field (non-editable) -->
+
+
+    <EditText
+        android:id="@+id/edit_text_hotel_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hotel Name" />
+
+    <EditText
+        android:id="@+id/edit_text_room_types"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Room Types"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_text_person"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Person"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/edit_text_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Price"
+        android:inputType="numberDecimal" />
+
+
+
+    <TextView
+        android:id="@+id/text_view_hotel_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hotel ID"
+        android:padding="8dp"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:enabled="false" />
+    <ImageView
+        android:id="@+id/image_view_product"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/button_select_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Image"
+        android:layout_marginTop="16dp" />
+
+    <!-- Horizontal layout for side-by-side buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/button_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/design_default_color_secondary_variant"
+            android:text="@string/search" />
+
+        <Button
+            android:id="@+id/button_update"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/design_default_color_primary"
+            android:text="@string/update_hotel" />
+    </LinearLayout>
+
+</LinearLayout>
