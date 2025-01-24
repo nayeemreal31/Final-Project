@@ -36,7 +36,7 @@ public class DeleteHotelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_hotel);
 
-        editTextName = findViewById(R.id.edit_tex_hotel_name);
+        editTextName = findViewById(R.id.edit_text_hotel_name);
         textViewRoomTypes=findViewById(R.id.text_vi_room_types);
         textViewPerson =findViewById(R.id.text_vi_person);
         textViewPrice = findViewById(R.id.text_vi_price);

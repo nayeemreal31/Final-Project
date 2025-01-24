@@ -74,7 +74,7 @@ public class UpdateHotelActivity extends AppCompatActivity {
             String person=cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_PERSON));
             double price = cursor.getDouble(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_PRICE));
 
-          //  String Location = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_HOTEL_LOCATION));
+            //  String Location = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_HOTEL_LOCATION));
             byte[] image = cursor.getBlob(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_IMAGE_URI));
 
 

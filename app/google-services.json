@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "632251755960",
+    "project_id": "hotelsphere-c9d69",
+    "storage_bucket": "hotelsphere-c9d69.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632251755960:android:329767e96f81f56d67334d",
+        "android_client_info": {
+          "package_name": "com.example.nayeem1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNIJvLZl8vCOF2mhg1UaSFPyhGMU2-gtw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

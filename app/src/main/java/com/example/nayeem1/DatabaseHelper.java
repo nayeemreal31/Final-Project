@@ -82,7 +82,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return exists;
     }
 
-    public void insertHotel(String name, String types, int person,double price, byte[] imageByteArray) {
+    public boolean insertHotel(String name, String types, int person, double price, byte[] imageByteArray) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COL_HOTEL_NAME, name);
@@ -93,15 +93,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COL_IMAGE_URI, imageByteArray);
         db.insert(TABLE_HOTEL, null, values);
         db.close();
+        return false;
     }
-    public Cursor getAllProducts() {
+    public Cursor getAllHotels() {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_HOTEL, null);
     }
     public Cursor getProductByName(String productName) {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_HOTEL + " WHERE " + COL_HOTEL_NAME + " = ?", new String[]{productName});
-}
+    }
     public void updateHotel(int hotelId, String hotelName,String types,int person, double price, byte[] productImageByteArray) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();

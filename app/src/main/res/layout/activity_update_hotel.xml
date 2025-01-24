@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#3B9589"
     android:padding="16dp">
 
     <!-- Header TextView -->
@@ -23,20 +24,23 @@
         android:id="@+id/edit_text_hotel_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Hotel Name" />
+        android:hint="Hotel Name"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/edit_text_room_types"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Room Types"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/edit_text_person"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Person"
+        android:textColor="@color/black"
         android:inputType="number" />
 
     <EditText
@@ -44,6 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Price"
+        android:textColor="@color/black"
         android:inputType="numberDecimal" />
 
 
@@ -63,6 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
+        android:src="@drawable/image_icon"
         android:layout_marginTop="16dp" />
 
     <Button
@@ -70,6 +76,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Select Image"
+
         android:layout_marginTop="16dp" />
 
     <!-- Horizontal layout for side-by-side buttons -->
@@ -85,7 +92,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/design_default_color_secondary_variant"
+            android:backgroundTint="#9E9D24"
             android:text="@string/search" />
 
         <Button

@@ -19,7 +19,9 @@ public class AdminHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_home);
         Button btnInsertHotel=findViewById(R.id.btn_insert_hotel);
 
-        Button btnView =findViewById(R.id.btn_view_update_delete_hotel);
+        Button btnView =findViewById(R.id.btn_view_hotel);
+        Button btnUpdate =findViewById(R.id.btn_update_hotel);
+        Button btnDelete =findViewById(R.id.btn_delete_hotel);
 
         btnInsertHotel.setOnClickListener(v ->{
             Intent intent=new Intent(AdminHomeActivity.this,InsertHotelActivity.class);
@@ -29,6 +31,18 @@ public class AdminHomeActivity extends AppCompatActivity {
 
         btnView.setOnClickListener(v ->{
             Intent intent=new Intent(AdminHomeActivity.this,ViewActivity.class);
+            startActivity(intent);
+
+        });
+
+        btnUpdate.setOnClickListener(v ->{
+            Intent intent=new Intent(AdminHomeActivity.this,UpdateHotelActivity.class);
+            startActivity(intent);
+
+        });
+
+        btnDelete.setOnClickListener(v ->{
+            Intent intent=new Intent(AdminHomeActivity.this,DeleteHotelActivity.class);
             startActivity(intent);
 
         });

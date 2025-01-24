@@ -5,59 +5,98 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
+    private ProgressBar progressBar;
+
+    // Admin credentials
+    private static final String ADMIN_EMAIL = "nayeemreal31@gmail.com";
+    private static final String ADMIN_PASSWORD = "nayeem833731";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
-        EditText etUsername = findViewById(R.id.et_username);
+        // Initialize UI components
+        EditText etEmail = findViewById(R.id.et_email);
         EditText etPassword = findViewById(R.id.et_password);
         Button btnLogin = findViewById(R.id.btn_login);
         Button btnRegister = findViewById(R.id.btn_register);
+        progressBar = findViewById(R.id.progressBar);
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Register Button Clicked!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
+        // Handle Register Button Click
+        btnRegister.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+            startActivity(intent);
         });
 
+        // Handle Login Button Click
         btnLogin.setOnClickListener(v -> {
-            String username = etUsername.getText().toString();
-            String password = etPassword.getText().toString();
+            String email = etEmail.getText().toString().trim();
+            String password = etPassword.getText().toString().trim();
 
-            if (username.isEmpty() || password.isEmpty()) {
-                Toast.makeText(MainActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+            // Validate input fields
+            if (email.isEmpty()) {
+                etEmail.setError("Email cannot be empty");
+                etEmail.requestFocus();
+            } else if (password.isEmpty()) {
+                etPassword.setError("Password cannot be empty");
+                etPassword.requestFocus();
             } else {
-                if (username.equals("admin") && password.equals("admin")) {
-                    Intent intent = new Intent(MainActivity.this, AdminHomeActivity.class);
-                    startActivity(intent);
-                } else {
-                    DatabaseHelper dbHelper = new DatabaseHelper(MainActivity.this);
-                    boolean result = dbHelper.checkUserByUsername(username, password);
-                    if (result) {
-                        Toast.makeText(MainActivity.this, "Welcome valid user!!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(MainActivity.this, RoomBooking.class); // Assuming HomeActivity is the activity after login
-                        startActivity(intent);
-                    } else {
-                        Toast.makeText(MainActivity.this, "Invalid Username and password!", Toast.LENGTH_SHORT).show();
-
-                    }
-                }
+                loginWithFirebase(email, password);
             }
         });
+    }
+
+    // Firebase Login Method
+    private void loginWithFirebase(String email, String password) {
+        // Show ProgressBar
+        progressBar.setVisibility(View.VISIBLE);
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(task -> {
+                    // Hide ProgressBar
+                    progressBar.setVisibility(View.GONE);
+
+                    if (task.isSuccessful()) {
+                        // Get the currently signed-in user
+                        FirebaseUser user = mAuth.getCurrentUser();
+
+                        if (email.equals(ADMIN_EMAIL) && password.equals(ADMIN_PASSWORD)) {
+                            // Admin Login
+                            Toast.makeText(MainActivity.this, "Welcome Admin!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(MainActivity.this, AdminHomeActivity.class);
+                            startActivity(intent);
+                            finish();
+                        } else if (user != null && user.isEmailVerified()) {
+                            // Regular user login
+                            Toast.makeText(MainActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(MainActivity.this, RoomBooking.class);
+                            startActivity(intent);
+                            finish();
+                        } else if (user != null) {
+                            // Email not verified
+                            mAuth.signOut(); // Log out the user
+                            Toast.makeText(MainActivity.this, "Please verify your email before logging in.", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        // Login failed
+                        String errorMessage = task.getException() != null ? task.getException().getMessage() : "Login failed!";
+                        Toast.makeText(MainActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

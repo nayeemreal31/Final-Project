@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
+    android:background="@color/white"
     android:padding="8dp">
 
     <ImageView
@@ -25,12 +26,14 @@
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:textSize="14sp"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/text_view_room_types"
             android:layout_width="match_parent"
             android:layout_height="58dp"
+            android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold" />
 
